@@ -16,8 +16,8 @@ public class ModItems {
     public static final Item TEST_ITEM = registerItem("test_item");
 
     private static Item registerItem(String name) {
-        Item item = new Item(new Item.Settings().food(new FoodComponent.Builder().build()).registryKey(
-                RegistryKey.of(RegistryKeys.ITEM, Identifier.of(TestMod.MOD_ID,name))));
+        Item item = new Item(new Item.Settings().registryKey(
+                RegistryKey.of(RegistryKeys.ITEM, Identifier.of(TestMod.MOD_ID, name))));
         return Registry.register(Registries.ITEM, Identifier.of(TestMod.MOD_ID, name), item);
     }
 
