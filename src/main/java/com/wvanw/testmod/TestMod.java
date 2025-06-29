@@ -19,21 +19,11 @@ import org.slf4j.LoggerFactory;
 
 public class TestMod implements ModInitializer {
 
-	public static final Identifier KILL_ENTITY_PACKET = Identifier.of("testmod", "kill_entity");
-
 	public static final String MOD_ID = "testmod";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	@Override
 	public void onInitialize() {
 		ModItems.registerModItems();
-
-		AttackEntityCallback.EVENT.register(((player, world, hand, entity, entityHitResult) -> {
-
-			if (player.getMainHandStack().isEmpty()) {
-				entity.addVelocity(player.getFacing().getDoubleVector().multiply(-5));
-			}
-			return ActionResult.PASS;
-		}));
 	}
 }
